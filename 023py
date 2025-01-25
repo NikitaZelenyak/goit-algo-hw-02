@@ -1,0 +1,15 @@
+def check_delimiters(sequences):
+    stack= []
+    pairs= {')':'(', ']':'[', '}':'{'}
+   
+    for char in sequences:
+        if char in pairs.values():
+            stack.append(char)
+        elif char in pairs.keys():
+            if not stack or pairs[char] != stack.pop():
+                print("Sequence is not balanced")
+                return 
+    print("Sequence is balanced")
+
+check_delimiters("({[]}())")
+
