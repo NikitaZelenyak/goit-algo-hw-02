@@ -4,7 +4,11 @@ d = deque()
 print(d)  
 
 def is_it_palindrome(string):
-    for char in string:
+    if not string:
+        print('No string provided')
+        return 
+    prettify_string = string.lower().replace(' ', '')
+    for char in prettify_string:
         d.append(char)
     while len(d) > 1:
         if d.popleft() != d.pop():
